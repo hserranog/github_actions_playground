@@ -46,3 +46,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         source-branch: release
         target-branch: main
+    - name: Mezcla main -> desarrollo
+      if: success()    # Solo si las pruebas pasan
+      uses: tukasz/direct-merge-action@master
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        source-branch: main
+        target-branch: desarrollo
